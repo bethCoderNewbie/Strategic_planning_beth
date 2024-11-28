@@ -1,4 +1,6 @@
 import { ArrowUp, ArrowRight, ArrowDown, ArrowLeft } from 'lucide-react';
+import { useState } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const StrategicGrowthMatrix = () => {
   const getQuadrantStyle = (position) => {
@@ -115,3 +117,120 @@ const StrategicGrowthMatrix = () => {
 };
 
 export default StrategicGrowthMatrix;
+
+const UncertaintyMatrix = () => {
+  const getQuadrantStyle = (importance, uncertainty) => {
+    // High importance gets darker shades
+    if (importance === 'high') {
+      return uncertainty === 'high' 
+        ? { backgroundColor: '#ff7e8d' } // High importance, high uncertainty
+        : { backgroundColor: '#ff5166' }  // High importance, low uncertainty
+    }
+    // Low importance gets lighter shades
+    return uncertainty === 'high'
+        ? { backgroundColor: '#ffeaec' } // Low importance, high uncertainty
+        : { backgroundColor: '#ffb6bf' }  // Low importance, low uncertainty
+  };
+
+  return (
+    <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8">
+      <h2 className="text-2xl font-bold text-center mb-8">Strategic Impact-Uncertainty Matrix</h2>
+      
+      <div className="grid grid-cols-2 gap-px bg-white h-[480px] border border-gray-200">
+        {/* Trends - High Importance, Low Uncertainty */}
+        <div className="p-6" style={getQuadrantStyle('high', 'low')}>
+          <h3 className="font-bold mb-4 text-black">Trends</h3>
+          <div className="space-y-4">
+            <div className="flex items-center">
+              <div className="w-2 h-2 bg-black rounded-full mr-2" />
+              <span className="text-black">Digital Ad Market Growth</span>
+            </div>
+            <div className="flex items-center">
+              <div className="w-2 h-2 bg-black rounded-full mr-2" />
+              <span className="text-black">Content Localization</span>
+            </div>
+            <div className="flex items-center">
+              <div className="w-2 h-2 bg-black rounded-full mr-2" />
+              <span className="text-black">Mobile-First Consumption</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Critical Uncertainties - High Importance, High Uncertainty */}
+        <div className="p-6" style={getQuadrantStyle('high', 'high')}>
+          <h3 className="font-bold mb-4 text-black">Critical Uncertainties</h3>
+          <div className="space-y-4">
+            <div className="flex items-center">
+              <div className="w-2 h-2 bg-black rounded-full mr-2" />
+              <span className="text-black">AI/ML Development Speed & Regulation</span>
+            </div>
+            <div className="flex items-center">
+              <div className="w-2 h-2 bg-black rounded-full mr-2" />
+              <span className="text-black">Emerging Market Growth Trajectory</span>
+            </div>
+            <div className="flex items-center">
+              <div className="w-2 h-2 bg-black rounded-full mr-2" />
+              <span className="text-black">Gaming Industry Evolution</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Background - Low Importance, Low Uncertainty */}
+        <div className="p-6" style={getQuadrantStyle('low', 'low')}>
+          <h3 className="font-bold mb-4 text-black">Background</h3>
+          <div className="space-y-4">
+            <div className="flex items-center">
+              <div className="w-2 h-2 bg-black rounded-full mr-2" />
+              <span className="text-black">Data Center Sustainability</span>
+            </div>
+            <div className="flex items-center">
+              <div className="w-2 h-2 bg-black rounded-full mr-2" />
+              <span className="text-black">Payment Infrastructure</span>
+            </div>
+            <div className="flex items-center">
+              <div className="w-2 h-2 bg-black rounded-full mr-2" />
+              <span className="text-black">Basic Internet Connectivity Growth</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Monitor - Low Importance, High Uncertainty */}
+        <div className="p-6" style={getQuadrantStyle('low', 'high')}>
+          <h3 className="font-bold mb-4 text-black">Monitor</h3>
+          <div className="space-y-4">
+            <div className="flex items-center">
+              <div className="w-2 h-2 bg-black rounded-full mr-2" />
+              <span className="text-black">Web3/Metaverse Development</span>
+            </div>
+            <div className="flex items-center">
+              <div className="w-2 h-2 bg-black rounded-full mr-2" />
+              <span className="text-black">Quantum Computing</span>
+            </div>
+            <div className="flex items-center">
+              <div className="w-2 h-2 bg-black rounded-full mr-2" />
+              <span className="text-black">Future Disruptions</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex justify-between mt-4 px-8">
+        <div className="flex flex-col">
+          <span className="font-bold">Low Uncertainty</span>
+          <span className="text-sm text-gray-600">(More Predictable)</span>
+        </div>
+        <div className="flex flex-col text-right">
+          <span className="font-bold">High Uncertainty</span>
+          <span className="text-sm text-gray-600">(Less Predictable)</span>
+        </div>
+      </div>
+
+      {/* Vertical Axis Label */}
+      <div className="absolute -left-4 top-1/2 transform -rotate-90 whitespace-nowrap">
+        <span className="font-bold">Importance</span>
+      </div>
+    </div>
+  );
+};
+
+export default UncertaintyMatrix;
