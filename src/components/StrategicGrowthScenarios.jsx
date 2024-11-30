@@ -1,6 +1,5 @@
-import { ArrowUp, ArrowRight, ArrowDown, ArrowLeft } from 'lucide-react';
+import { ArrowUp, ArrowRight, ArrowDown, ArrowLeft, ChevronLeft, ChevronRight } from '@/components/icons';
 import { useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const StrategicGrowthMatrix = () => {
   const getQuadrantStyle = (position) => {
@@ -15,15 +14,17 @@ const StrategicGrowthMatrix = () => {
 
   const Arrow = ({ direction }) => {
     const arrowProps = { className: "w-8 h-8", strokeWidth: 3, color: "#000000" };
-    switch(direction) {
-      case 'up': return <ArrowUp {...arrowProps} />;
-      case 'right': return <ArrowRight {...arrowProps} />;
-      case 'down': return <ArrowDown {...arrowProps} />;
-      case 'left': return <ArrowLeft {...arrowProps} />;
-      default: return null;
-    }
+    const ArrowComponent = {
+      up: ArrowUp,
+      right: ArrowRight,
+      down: ArrowDown,
+      left: ArrowLeft
+    }[direction];
+    
+    return ArrowComponent ? <ArrowComponent {...arrowProps} /> : null;
   };
 
+  // Rest of StrategicGrowthMatrix component remains the same...
   return (
     <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8">
       <h2 className="text-2xl font-bold text-center mb-8">Strategic Growth Scenarios</h2>
@@ -116,20 +117,16 @@ const StrategicGrowthMatrix = () => {
   );
 };
 
-export default StrategicGrowthMatrix;
-
 const UncertaintyMatrix = () => {
   const getQuadrantStyle = (importance, uncertainty) => {
-    // High importance gets darker shades
     if (importance === 'high') {
       return uncertainty === 'high' 
-        ? { backgroundColor: '#ff7e8d' } // High importance, high uncertainty
-        : { backgroundColor: '#ff5166' }  // High importance, low uncertainty
+        ? { backgroundColor: '#ff7e8d' }
+        : { backgroundColor: '#ff5166' }
     }
-    // Low importance gets lighter shades
     return uncertainty === 'high'
-        ? { backgroundColor: '#ffeaec' } // Low importance, high uncertainty
-        : { backgroundColor: '#ffb6bf' }  // Low importance, low uncertainty
+        ? { backgroundColor: '#ffeaec' }
+        : { backgroundColor: '#ffb6bf' }
   };
 
   return (
@@ -233,4 +230,4 @@ const UncertaintyMatrix = () => {
   );
 };
 
-export default UncertaintyMatrix;
+export { StrategicGrowthMatrix, UncertaintyMatrix };
