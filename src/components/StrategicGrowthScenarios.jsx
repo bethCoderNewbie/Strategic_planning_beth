@@ -1,4 +1,4 @@
-import { ArrowUp, ArrowRight, ArrowDown, ArrowLeft, ChevronLeft, ChevronRight } from '@/components/icons';
+import { ArrowUp, ArrowRight, ArrowDown, ArrowLeft } from './icons';
 import { useState } from 'react';
 
 const StrategicGrowthMatrix = () => {
@@ -24,7 +24,6 @@ const StrategicGrowthMatrix = () => {
     return ArrowComponent ? <ArrowComponent {...arrowProps} /> : null;
   };
 
-  // Rest of StrategicGrowthMatrix component remains the same...
   return (
     <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8">
       <h2 className="text-2xl font-bold text-center mb-8">Strategic Growth Scenarios</h2>
