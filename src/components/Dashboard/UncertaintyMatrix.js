@@ -1,4 +1,4 @@
-const UncertaintyMatrix = () => {
+export const UncertaintyMatrix = () => {
   const quadrants = [
     {
       title: "Trends",
@@ -55,9 +55,7 @@ const UncertaintyMatrix = () => {
 
   return (
     <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8">
-      <h2 className="text-2xl font-bold text-center mb-8">
-        Strategic Impact-Uncertainty Matrix
-      </h2>
+      <h2 className="text-2xl font-bold text-center mb-8">Strategic Impact-Uncertainty Matrix</h2>
       
       <div className="grid grid-cols-2 gap-px bg-white h-[480px] border border-gray-200">
         {quadrants.map((quadrant, index) => (
@@ -93,4 +91,4 @@ const UncertaintyMatrix = () => {
   );
 };
 
-export { StrategicGrowthMatrix, UncertaintyMatrix };
+export default UncertaintyMatrix;
