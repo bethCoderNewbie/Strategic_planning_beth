@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import Arrow from './Arrow';
 
-const StrategicGrowthMatrix = () => {
+export const StrategicGrowthMatrix = () => {
+
   const quadrants = {
     topLeft: {
       title: "Local Champions",
