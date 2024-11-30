@@ -1,8 +1,6 @@
-import { useState } from 'react';
-import Arrow from './Arrow';
+import React from 'react';
 
 export const StrategicGrowthMatrix = () => {
-
   const quadrants = {
     topLeft: {
       title: "Local Champions",
@@ -46,7 +44,7 @@ export const StrategicGrowthMatrix = () => {
     }
   };
 
-  const Quadrant = ({ data, position }) => (
+  const Quadrant = ({ data }) => (
     <div className="p-6 rounded-lg" style={{ backgroundColor: data.color }}>
       <h3 className="font-bold mb-4 text-black">{data.title}</h3>
       <ul className="space-y-2 text-sm text-black">
@@ -62,9 +60,7 @@ export const StrategicGrowthMatrix = () => {
 
   return (
     <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8">
-      <h2 className="text-2xl font-bold text-center mb-8">
-        Strategic Growth Scenarios
-      </h2>
+      <h2 className="text-2xl font-bold text-center mb-8">Strategic Growth Scenarios</h2>
       
       <div className="relative h-[600px]">
         {/* Axes Labels */}
@@ -84,18 +80,16 @@ export const StrategicGrowthMatrix = () => {
 
         {/* Matrix Grid */}
         <div className="grid grid-cols-2 gap-4 h-full px-12 py-8">
-          <Quadrant data={quadrants.topLeft} position="topLeft" />
-          <Quadrant data={quadrants.topRight} position="topRight" />
-          <Quadrant data={quadrants.bottomLeft} position="bottomLeft" />
-          <Quadrant data={quadrants.bottomRight} position="bottomRight" />
+          <Quadrant data={quadrants.topLeft} />
+          <Quadrant data={quadrants.topRight} />
+          <Quadrant data={quadrants.bottomLeft} />
+          <Quadrant data={quadrants.bottomRight} />
         </div>
 
         {/* Strategic Flexibility Circle */}
         <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <div className="w-24 h-24 rounded-full border-2 border-dashed border-[#073763] bg-white flex items-center justify-center">
-            <span className="text-sm text-[#073763] font-semibold text-center">
-              Strategic Flexibility
-            </span>
+            <span className="text-sm text-[#073763] font-semibold text-center">Strategic Flexibility</span>
           </div>
         </div>
       </div>
