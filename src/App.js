@@ -3,7 +3,8 @@ import {
   StrategicGrowthMatrix, 
   UncertaintyMatrix,
   ScenarioPlanning,
-  PestelAnalysis
+  PestelAnalysis,
+  Presentation
 } from './components/Dashboard';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <UncertaintyMatrix />
       <ScenarioPlanning />
       <PestelAnalysis />
+      <Presentation />
     </div>
   );
 }
