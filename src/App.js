@@ -1,12 +1,18 @@
 import React from 'react';
-import { StrategicGrowthMatrix, UncertaintyMatrix } from './components/Dashboard';
+import { 
+  StrategicGrowthMatrix, 
+  UncertaintyMatrix,
+  ScenarioPlanning,
+  PestelAnalysis
+} from './components/Dashboard';
 
 function App() {
   return (
-    <div className="p-4">
+    <div className="p-4 space-y-8">
       <StrategicGrowthMatrix />
-      <div className="h-8" />
       <UncertaintyMatrix />
+      <ScenarioPlanning />
+      <PestelAnalysis />
     </div>
   );
 }
