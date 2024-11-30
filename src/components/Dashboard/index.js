@@ -1,2 +1,4 @@
-export { StrategicGrowthMatrix } from './StrategicGrowthMatrix';
-export { UncertaintyMatrix } from './UncertaintyMatrix';
+export { default as StrategicGrowthMatrix } from './StrategicGrowthMatrix';
+export { default as UncertaintyMatrix } from './UncertaintyMatrix';
+export { default as ScenarioPlanning } from './ScenarioPlanning';
+export { default as PestelAnalysis } from './PestelAnalysis';
