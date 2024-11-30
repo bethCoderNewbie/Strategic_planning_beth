@@ -1,28 +1,5 @@
 import { useState } from 'react';
 
-const Arrow = ({ direction, className = "w-8 h-8" }) => {
-  const paths = {
-    up: "M12 19V5M5 12l7-7 7 7",
-    right: "M5 12h14M12 5l7 7-7 7",
-    down: "M12 5v14M5 12l7 7 7-7",
-    left: "M19 12H5M12 19l-7-7 7-7"
-  };
-
-  return (
-    <svg 
-      className={className}
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth={2}
-      strokeLinecap="round" 
-      strokeLinejoin="round"
-    >
-      <path d={paths[direction]} />
-    </svg>
-  );
-};
-
 const StrategicGrowthMatrix = () => {
   const quadrants = {
     topLeft: {
@@ -103,20 +80,6 @@ const StrategicGrowthMatrix = () => {
           </div>
         </div>
 
-        {/* Arrows */}
-        <div className="absolute top-4 left-1/2 transform -translate-x-1/2">
-          <Arrow direction="up" />
-        </div>
-        <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
-          <Arrow direction="right" />
-        </div>
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-          <Arrow direction="down" />
-        </div>
-        <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
-          <Arrow direction="left" />
-        </div>
-
         {/* Matrix Grid */}
         <div className="grid grid-cols-2 gap-4 h-full px-12 py-8">
           <Quadrant data={quadrants.topLeft} position="topLeft" />
@@ -137,4 +100,5 @@ const StrategicGrowthMatrix = () => {
     </div>
   );
 };
+
 export default StrategicGrowthMatrix;
