@@ -1,3 +1,4 @@
+import React from 'react';
 import { StrategicGrowthMatrix, UncertaintyMatrix } from './components/Dashboard';
 
 function App() {
