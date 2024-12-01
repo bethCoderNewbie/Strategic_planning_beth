@@ -4,7 +4,8 @@ import {
   UncertaintyMatrix,
   ScenarioPlanning,
   PestelAnalysis,
-  Presentation
+  Presentation,
+  AIIntegrationDashboard
 } from './components/Dashboard';
 
 function App() {
