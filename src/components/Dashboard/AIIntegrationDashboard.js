@@ -41,7 +41,7 @@ const DeploymentVideo = () => (
     <iframe
       className="w-full h-full"
       src="https://www.youtube.com/embed/eutdNIaZ9UE?si=izf6cscJ5QhblR64"
-      title="Deployment Configuration"
+      title="AI generated video example"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
     />
@@ -105,8 +105,8 @@ const AIIntegrationDashboard = () => {
 
   const views = {
     deployment: {
-      title: "Deployment Configuration & Best Practices",
-      subtitle: "Optimizing Build Process and Performance Monitoring"
+      title: "AI generated video example",
+      subtitle: "How AI and machine learning can revolutionize the content production industry"
     },
     porter: {
       title: "Netflix Market Position in AI/ML Development",
