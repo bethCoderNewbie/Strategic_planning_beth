@@ -98,14 +98,14 @@ const AIIntegrationDashboard = () => {
       title: "Netflix Market Position in AI/ML Development",
       subtitle: "Porter's Five Forces Analysis"
     },
+        investment: {
+      title: "Netflix 2025: Strategic Investment Realignment",
+      subtitle: "Transforming Content Leadership Through Strategic Technology Integration"
+    },
     landscape: {
       title: "Netflix Strategic Landscape 2024-2025",
       subtitle: "Growth Through Content & Technology Integration"
-    }.
-    investment: {
-      title: "Netflix 2025: Strategic Investment Realignment",
-      subtitle: "Transforming Content Leadership Through Strategic Technology Integration"
-    }   
+    }
   };
 
   return (
