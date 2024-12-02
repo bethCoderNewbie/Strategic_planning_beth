@@ -36,6 +36,18 @@ const MetricCard = ({ title, value, trend, color }) => (
   </div>
 );
 
+const DeploymentVideo = () => (
+  <div className="w-full aspect-video rounded-lg overflow-hidden shadow-lg">
+    <iframe
+      className="w-full h-full"
+      src="https://www.youtube.com/embed/eutdNIaZ9UE?si=izf6cscJ5QhblR64"
+      title="Deployment Configuration"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    />
+  </div>
+);
+
 const PorterForces = () => {
   const data = [
     { force: 'New Entrants', value: 45, color: '#FFD700' },
@@ -44,6 +56,19 @@ const PorterForces = () => {
     { force: 'Substitutes', value: 35, color: '#90EE90' },
     { force: 'Industry Rivalry', value: 80, color: NETFLIX_COLORS.primary }
   ];
+
+  return (
+    <div className="h-80">
+      <ResponsiveContainer width="100%" height="100%">
+        <RadarChart data={data}>
+          <PolarGrid />
+          <PolarAngleAxis dataKey="force" />
+          <Radar dataKey="value" fill={NETFLIX_COLORS.primary} fillOpacity={0.5} />
+        </RadarChart>
+      </ResponsiveContainer>
+    </div>
+  );
+};
 
 const InvestmentAllocation = () => {
   const data = [
@@ -75,30 +100,19 @@ const InvestmentAllocation = () => {
   );
 };
 
-
-
-  return (
-    <div className="h-80">
-      <ResponsiveContainer width="100%" height="100%">
-        <RadarChart data={data}>
-          <PolarGrid />
-          <PolarAngleAxis dataKey="force" />
-          <Radar dataKey="value" fill={NETFLIX_COLORS.primary} fillOpacity={0.5} />
-        </RadarChart>
-      </ResponsiveContainer>
-    </div>
-  );
-};
-
 const AIIntegrationDashboard = () => {
-  const [activeTab, setActiveTab] = useState('investment');
+  const [activeTab, setActiveTab] = useState('deployment');
 
   const views = {
+    deployment: {
+      title: "Deployment Configuration & Best Practices",
+      subtitle: "Optimizing Build Process and Performance Monitoring"
+    },
     porter: {
       title: "Netflix Market Position in AI/ML Development",
       subtitle: "Porter's Five Forces Analysis"
     },
-        investment: {
+    investment: {
       title: "Netflix 2025: Strategic Investment Realignment",
       subtitle: "Transforming Content Leadership Through Strategic Technology Integration"
     },
@@ -109,9 +123,21 @@ const AIIntegrationDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
+    <div className="min-h-screen bg-gray-50 p-4 md:p-8">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-6 flex space-x-2">
+        <div className="mb-6 flex flex-wrap gap-2">
+          <TabButton 
+            active={activeTab === 'deployment'} 
+            onClick={() => setActiveTab('deployment')}
+          >
+            Deployment
+          </TabButton>
+          <TabButton 
+            active={activeTab === 'porter'} 
+            onClick={() => setActiveTab('porter')}
+          >
+            Porter's Analysis
+          </TabButton>
           <TabButton 
             active={activeTab === 'investment'} 
             onClick={() => setActiveTab('investment')}
@@ -124,21 +150,39 @@ const AIIntegrationDashboard = () => {
           >
             Strategic Landscape
           </TabButton>
-          <TabButton 
-            active={activeTab === 'porter'} 
-            onClick={() => setActiveTab('porter')}
-          >
-            Porter's Analysis
-          </TabButton>
         </div>
 
-        <div className="bg-white rounded-lg shadow-lg p-8">
-          <h1 className="text-3xl font-bold mb-2 text-gray-900">
+        <div className="bg-white rounded-lg shadow-lg p-4 md:p-8">
+          <h1 className="text-2xl md:text-3xl font-bold mb-2 text-gray-900">
             {views[activeTab].title}
           </h1>
           <p className="text-gray-500 mb-8">{views[activeTab].subtitle}</p>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {activeTab === 'deployment' && (
+              <div className="lg:col-span-2">
+                <DeploymentVideo />
+              </div>
+            )}
+
+            {activeTab === 'porter' && (
+              <>
+                <div>
+                  <h2 className="text-xl font-semibold mb-4">Porter's Five Forces</h2>
+                  <PorterForces />
+                </div>
+                <div>
+                  <h2 className="text-xl font-semibold mb-4">Key Metrics</h2>
+                  <div className="grid grid-cols-1 gap-4">
+                    <MetricCard title="Capital Deployment" value="$15.5B" color={NETFLIX_COLORS.primary} />
+                    <MetricCard title="Tech Development" value="$2.7B" color={NETFLIX_COLORS.primary} />
+                    <MetricCard title="Content Investment" value="$12.5B" color={NETFLIX_COLORS.primary} />
+                    <MetricCard title="AI/ML Investment" value="$500M-$700M" color={NETFLIX_COLORS.primary} />
+                  </div>
+                </div>
+              </>
+            )}
+
             {activeTab === 'investment' && (
               <>
                 <div>
@@ -176,24 +220,6 @@ const AIIntegrationDashboard = () => {
                         <h3 className="font-semibold text-gray-700">{vector}</h3>
                       </div>
                     ))}
-                  </div>
-                </div>
-              </>
-            )}
-
-            {activeTab === 'porter' && (
-              <>
-                <div>
-                  <h2 className="text-xl font-semibold mb-4">Porter's Five Forces</h2>
-                  <PorterForces />
-                </div>
-                <div>
-                  <h2 className="text-xl font-semibold mb-4">Key Metrics</h2>
-                  <div className="grid grid-cols-1 gap-4">
-                    <MetricCard title="Capital Deployment" value="$15.5B" color={NETFLIX_COLORS.primary} />
-                    <MetricCard title="Tech Development" value="$2.7B" color={NETFLIX_COLORS.primary} />
-                    <MetricCard title="Content Investment" value="$12.5B" color={NETFLIX_COLORS.primary} />
-                    <MetricCard title="AI/ML Investment" value="$500M-$700M" color={NETFLIX_COLORS.primary} />
                   </div>
                 </div>
               </>
