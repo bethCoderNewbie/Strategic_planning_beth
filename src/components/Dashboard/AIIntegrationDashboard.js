@@ -88,7 +88,7 @@ const PorterForces = () => {
   );
 };
 
-const Dashboard = () => {
+const AIIntegrationDashboard = () => {
   const [activeTab, setActiveTab] = useState('investment');
 
   const views = {
