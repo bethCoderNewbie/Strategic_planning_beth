@@ -38,9 +38,9 @@ const MetricCard = ({ title, value, trend, color }) => (
 
 const InvestmentAllocation = () => {
   const data = [
-    { name: 'Content Development', value: 52, color: NETFLIX_COLORS.primary },
+    { name: 'Content Development', value: 57, color: NETFLIX_COLORS.primary },
     { name: 'Tech Infrastructure', value: 12, color: NETFLIX_COLORS.secondary },
-    { name: 'AI/ML Development', value: 8, color: NETFLIX_COLORS.gray },
+    { name: 'AI/ML Development', value: 3, color: NETFLIX_COLORS.gray },
     { name: 'Market Operations', value: 28, color: NETFLIX_COLORS.orange }
   ];
 
