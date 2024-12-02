@@ -36,6 +36,15 @@ const MetricCard = ({ title, value, trend, color }) => (
   </div>
 );
 
+const PorterForces = () => {
+  const data = [
+    { force: 'New Entrants', value: 45, color: '#FFD700' },
+    { force: 'Supplier Power', value: 85, color: NETFLIX_COLORS.primary },
+    { force: 'Buyer Power', value: 55, color: '#FFD700' },
+    { force: 'Substitutes', value: 35, color: '#90EE90' },
+    { force: 'Industry Rivalry', value: 80, color: NETFLIX_COLORS.primary }
+  ];
+
 const InvestmentAllocation = () => {
   const data = [
     { name: 'Content Development', value: 57, color: NETFLIX_COLORS.primary },
@@ -66,14 +75,7 @@ const InvestmentAllocation = () => {
   );
 };
 
-const PorterForces = () => {
-  const data = [
-    { force: 'New Entrants', value: 45, color: '#FFD700' },
-    { force: 'Supplier Power', value: 85, color: NETFLIX_COLORS.primary },
-    { force: 'Buyer Power', value: 55, color: '#FFD700' },
-    { force: 'Substitutes', value: 35, color: '#90EE90' },
-    { force: 'Industry Rivalry', value: 80, color: NETFLIX_COLORS.primary }
-  ];
+
 
   return (
     <div className="h-80">
@@ -92,18 +94,18 @@ const AIIntegrationDashboard = () => {
   const [activeTab, setActiveTab] = useState('investment');
 
   const views = {
-    investment: {
-      title: "Netflix 2025: Strategic Investment Realignment",
-      subtitle: "Transforming Content Leadership Through Strategic Technology Integration"
+    porter: {
+      title: "Netflix Market Position in AI/ML Development",
+      subtitle: "Porter's Five Forces Analysis"
     },
     landscape: {
       title: "Netflix Strategic Landscape 2024-2025",
       subtitle: "Growth Through Content & Technology Integration"
-    },
-    porter: {
-      title: "Netflix Market Position in AI/ML Development",
-      subtitle: "Porter's Five Forces Analysis"
-    }
+    }.
+    investment: {
+      title: "Netflix 2025: Strategic Investment Realignment",
+      subtitle: "Transforming Content Leadership Through Strategic Technology Integration"
+    }   
   };
 
   return (
